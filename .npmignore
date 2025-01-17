@@ -1,0 +1,26 @@
+# Development
+__tests__
+.github
+.vscode
+.idea
+.circleci
+
+# Build artifacts
+android/build
+ios/build
+coverage
+reports
+
+# Source control
+.git
+.gitignore
+
+# Dependencies
+node_modules
+
+# OS generated files
+.DS_Store
+
+# Temporary files
+*.log
+.metro-health-check*

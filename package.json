@@ -1,7 +1,7 @@
 {
-  "name": "react-native-deeplinknow",
+  "name": "react-native-deeplink-now",
   "version": "0.1.0",
-  "description": "React Native wrapper for DeepLinkNow SDK",
+  "description": "React Native / Expo wrapper for the DeepLink.now deferred deep linking SDK",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
   "types": "lib/typescript/index.d.ts",
@@ -31,6 +31,7 @@
   "scripts": {
     "typescript": "tsc --noEmit",
     "prepare": "bob build",
+    "build": "bob build",
     "release": "release-it",
     "postinstall": "pod-install"
   },
@@ -40,13 +41,13 @@
     "android",
     "deep-linking"
   ],
-  "repository": "https://github.com/yourusername/react-native-deeplinknow",
-  "author": "Your Name <your.email@example.com>",
+  "repository": "https://github.com/jvgeee/react-native-deeplink-now",
+  "author": "DeepLinkNow <support@deeplink.now>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/yourusername/react-native-deeplinknow/issues"
+    "url": "https://github.com/jvgeee/react-native-deeplink-now/issues"
   },
-  "homepage": "https://github.com/yourusername/react-native-deeplinknow#readme",
+  "homepage": "https://github.com/jvgeee/react-native-deeplink-now#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },

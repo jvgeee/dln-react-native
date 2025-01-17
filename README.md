@@ -1,22 +1,18 @@
-# react-native-deeplinknow
+# react-native-deeplink-now
 
 React Native wrapper for the DeepLinkNow SDK
 
 ## Installation
 
-### Option 1: React Native CLI
-
 ```sh
-npm install react-native-deeplinknow
+npm install react-native-deeplink-now
 # or
-yarn add react-native-deeplinknow
+yarn add react-native-deeplink-now
+# or
+bun add react-native-deeplink-now
 ```
 
-### Option 2: Expo (Optional)
-
-```sh
-expo install react-native-deeplinknow
-```
+## Option 1: Expo Configuration
 
 If using Expo, add the config plugin to your app.json/app.config.js:
 
@@ -25,7 +21,7 @@ If using Expo, add the config plugin to your app.json/app.config.js:
   "expo": {
     "plugins": [
       [
-        "react-native-deeplinknow",
+        "react-native-deeplink-now",
         {
           "apiKey": "your-api-key-here"
         }
@@ -34,6 +30,8 @@ If using Expo, add the config plugin to your app.json/app.config.js:
   }
 }
 ```
+
+## Option 2: Manual Installation (for non-Expo projects)
 
 ### iOS Setup
 
@@ -69,7 +67,7 @@ The React Native module will automatically include the native SDK dependency.
 ## Usage
 
 ```typescript
-import DeepLinkNow from "react-native-deeplinknow";
+import DeepLinkNow from "react-native-deeplink-now";
 
 // Initialize the SDK
 DeepLinkNow.initialize("your-api-key-here");
