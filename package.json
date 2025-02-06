@@ -1,6 +1,6 @@
 {
   "name": "react-native-deeplink-now",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "author": "DeepLinkNow <support@deeplink.now>",
   "repository": {
     "type": "git",
@@ -79,7 +79,7 @@
   },
   "scripts": {
     "typescript": "tsc --noEmit",
-    "prepare": "bob build && tsc plugin/withDeepLinkNow.ts --outDir plugin --module commonjs --esModuleInterop true",
+    "prepare": "bob build && tsc -p plugin/tsconfig.json",
     "build": "bob build",
     "release": "release-it",
     "postinstall": "pod-install"
