@@ -1,5 +1,5 @@
 "use strict";
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 var ConfigPlugins;
 try {
     ConfigPlugins = require("@expo/config-plugins");
@@ -37,4 +37,4 @@ var withDeepLinkNow = function (config, props) {
         ],
     ]);
 };
-exports["default"] = withDeepLinkNow;
+exports.default = withDeepLinkNow;

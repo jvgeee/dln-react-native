@@ -16,5 +16,9 @@ Pod::Spec.new do |s|
   s.source_files = "ios/**/*.{h,m,mm,swift}"
 
   s.dependency "React-Core"
-  s.dependency "DeepLinkNow" # This links to the iOS SDK
+  s.dependency "DeepLinkNow", "~> 0.1.2"
+
+  s.prepare_command = <<-CMD
+    echo 'source "https://github.com/jvgeee/dln-ios.git"' >> ~/.cocoapods/config
+  CMD
 end 

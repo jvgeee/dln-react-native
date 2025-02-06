@@ -1,13 +1,18 @@
 import DeepLinkNow
+import React
 
 @objc(DeepLinkNowModule)
-class DeepLinkNowModule: RCTEventEmitter {
+class DeepLinkNowModule: RCTEventEmitter, RCTBridgeModule {
+    
+    override static func moduleName() -> String! {
+        return "DeepLinkNowModule"
+    }
     
     override static func requiresMainQueueSetup() -> Bool {
         return false
     }
     
-    override func supportedEvents() -> [String] {
+    override func supportedEvents() -> [String]! {
         return ["onDeepLink"]
     }
     
@@ -25,10 +30,7 @@ class DeepLinkNowModule: RCTEventEmitter {
     ) {
         var params: DLNCustomParameters?
         if let customParams = customParameters {
-            params = DLNCustomParameters()
-            customParams.forEach { key, value in
-                params?[key] = value
-            }
+            params = DLNCustomParameters(customParams)
         }
         
         if let url = DeepLinkNow.createDeepLink(
@@ -37,7 +39,7 @@ class DeepLinkNowModule: RCTEventEmitter {
         ) {
             resolve(url.absoluteString)
         } else {
-            reject("CREATE_DEEP_LINK_ERROR", "Failed to create deep link", nil)
+            reject("ERROR", "Could not create deep link", nil)
         }
     }
     
@@ -49,13 +51,13 @@ class DeepLinkNowModule: RCTEventEmitter {
     ) {
         guard let url = URL(string: url),
               let parsed = DeepLinkNow.parseDeepLink(url) else {
-            reject("PARSE_DEEP_LINK_ERROR", "Failed to parse deep link", nil)
+            reject("ERROR", "Could not parse deep link", nil)
             return
         }
         
         let response: [String: Any] = [
             "path": parsed.path,
-            "parameters": parsed.parameters.toMap()
+            "parameters": parsed.parameters.dictionary
         ]
         
         resolve(response)
@@ -79,14 +81,14 @@ class DeepLinkNowModule: RCTEventEmitter {
                 "url": url?.absoluteString as Any
             ]
             
-            if let attr = attribution {
+            if let attribution = attribution {
                 response["attribution"] = [
-                    "channel": attr.channel as Any,
-                    "campaign": attr.campaign as Any,
-                    "medium": attr.medium as Any,
-                    "source": attr.source as Any,
-                    "clickTimestamp": attr.clickTimestamp?.timeIntervalSince1970 as Any,
-                    "installTimestamp": attr.installTimestamp.timeIntervalSince1970
+                    "channel": attribution.channel as Any,
+                    "campaign": attribution.campaign as Any,
+                    "medium": attribution.medium as Any,
+                    "source": attribution.source as Any,
+                    "clickTimestamp": attribution.clickTimestamp?.timeIntervalSince1970 as Any,
+                    "installTimestamp": attribution.installTimestamp.timeIntervalSince1970
                 ]
             }
             
