@@ -2,7 +2,7 @@ import DeepLinkNow
 import React
 
 @objc(DeepLinkNowModule)
-class DeepLinkNowModule: RCTEventEmitter, RCTBridgeModule {
+class DeepLinkNowModule: RCTEventEmitter {
     
     override static func moduleName() -> String! {
         return "DeepLinkNowModule"
