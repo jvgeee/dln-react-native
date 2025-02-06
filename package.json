@@ -41,7 +41,10 @@
     "android",
     "deep-linking"
   ],
-  "repository": "https://github.com/jvgeee/react-native-deeplink-now",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jvgeee/react-native-deeplink-now.git"
+  },
   "author": "DeepLinkNow <support@deeplink.now>",
   "license": "MIT",
   "bugs": {
