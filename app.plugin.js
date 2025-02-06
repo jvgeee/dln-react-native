@@ -1,1 +1,1 @@
-module.exports = require("./plugin/withDeepLinkNow");
+module.exports = require("./plugin/withDeepLinkNow.js");

@@ -1,59 +1,13 @@
 {
   "name": "react-native-deeplink-now",
   "version": "0.1.1",
-  "description": "React Native / Expo wrapper for the DeepLink.now deferred deep linking SDK",
-  "main": "lib/commonjs/index",
-  "module": "lib/module/index",
-  "types": "lib/typescript/index.d.ts",
-  "react-native": "src/index",
-  "source": "src/index",
-  "files": [
-    "src",
-    "lib",
-    "android",
-    "ios",
-    "cpp",
-    "*.podspec",
-    "plugin",
-    "app.plugin.js",
-    "!lib/typescript/example",
-    "!ios/build",
-    "!android/build",
-    "!android/gradle",
-    "!android/gradlew",
-    "!android/gradlew.bat",
-    "!android/local.properties",
-    "!**/__tests__",
-    "!**/__fixtures__",
-    "!**/__mocks__",
-    "!**/.*"
-  ],
-  "scripts": {
-    "typescript": "tsc --noEmit",
-    "prepare": "bob build",
-    "build": "bob build",
-    "release": "release-it",
-    "postinstall": "pod-install"
-  },
-  "keywords": [
-    "react-native",
-    "ios",
-    "android",
-    "deep-linking"
-  ],
+  "author": "DeepLinkNow <support@deeplink.now>",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jvgeee/react-native-deeplink-now.git"
   },
-  "author": "DeepLinkNow <support@deeplink.now>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/jvgeee/react-native-deeplink-now/issues"
-  },
-  "homepage": "https://github.com/jvgeee/react-native-deeplink-now#readme",
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
-  },
+  "main": "lib/commonjs/index",
+  "module": "lib/module/index",
   "devDependencies": {
     "@types/react": "^17.0.21",
     "@types/react-native": "^0.70.0",
@@ -71,11 +25,49 @@
     "react": "*",
     "react-native": "*"
   },
+  "bugs": {
+    "url": "https://github.com/jvgeee/react-native-deeplink-now/issues"
+  },
+  "description": "React Native / Expo wrapper for the DeepLink.now deferred deep linking SDK",
+  "files": [
+    "src",
+    "lib",
+    "android",
+    "ios",
+    "cpp",
+    "*.podspec",
+    "plugin",
+    "app.plugin.js",
+    "plugin/withDeepLinkNow.js",
+    "!lib/typescript/example",
+    "!ios/build",
+    "!android/build",
+    "!android/gradle",
+    "!android/gradlew",
+    "!android/gradlew.bat",
+    "!android/local.properties",
+    "!**/__tests__",
+    "!**/__fixtures__",
+    "!**/__mocks__",
+    "!**/.*"
+  ],
+  "homepage": "https://github.com/jvgeee/react-native-deeplink-now#readme",
+  "keywords": [
+    "react-native",
+    "ios",
+    "android",
+    "deep-linking"
+  ],
+  "license": "MIT",
   "peerDependenciesMeta": {
     "expo": {
       "optional": true
     }
   },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "react-native": "src/index",
   "react-native-builder-bob": {
     "source": "src",
     "output": "lib",
@@ -84,5 +76,14 @@
       "module",
       "typescript"
     ]
-  }
+  },
+  "scripts": {
+    "typescript": "tsc --noEmit",
+    "prepare": "bob build && tsc plugin/withDeepLinkNow.ts --outDir plugin --module commonjs --esModuleInterop true",
+    "build": "bob build",
+    "release": "release-it",
+    "postinstall": "pod-install"
+  },
+  "source": "src/index",
+  "types": "lib/typescript/index.d.ts"
 }

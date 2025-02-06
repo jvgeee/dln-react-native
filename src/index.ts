@@ -1,4 +1,4 @@
-import { NativeModules, Platform, NativeEventEmitter } from "react-native";
+import { NativeModules, NativeEventEmitter } from "react-native";
 
 const { DeepLinkNowModule } = NativeModules;
 
